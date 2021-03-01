@@ -58,7 +58,24 @@ function has_length($value , $options = []){
     function has_format_matching($value , $regex = '//'){
         return preg_match($regex , $value);
     }    
+///////////////////////////////////////////////////////////////////////////////
 
+//* Validate value is a number
+//Submitted Values are strings , so use is_numeric() instead of is_int()
+//$options : max , min
+// has_number($items_to_order ,  ['min' =>1 , 'max'=> 5]);
+function has_number($value , $options = []){
+    if(!is_numeric($value)){
+        return false;
+    }
+    if(isset($options['max']) && ($value > (int) $options['max'])){
+        return false;
+    }
+    if(isset($options['min'])&& ($value < (int) $options['min'])){
+        return false;
+    }
+    return true;
+}
 
 
 ?>
