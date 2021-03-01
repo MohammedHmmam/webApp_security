@@ -28,6 +28,24 @@ function has_presence($value){
     return isset($trimmed_value) && $trimmed_value !== "";
 
 }
+/////////////////////////////////////////////////////////////////////////////
+//* Validate value has string length
+//leadnig and trailing spaces will count
+//options: exact , max , min
+//has_lenght($username , ['exact' => 20])
+//has_length($username , ['min' => 5 , 'max' => 100])
+function has_length($value , $options = []){
+    if(isset($options['max']) && (strlen($value) > (int)$options['max'])){
+        return false;
+    }
+    if(isset($options['min']) && (strlen($value) < (int)$options['min'])){
+        return false;
+    }
+    if(isset($options['exact']) && (strlen($value) != (int)$options['exact'])){
+        return false;
+    }
+    return true;
+}
 
 
 
