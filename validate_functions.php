@@ -1,6 +1,9 @@
 <?php
 
 //Check allowed URL parameters
+//Useage:
+    //$get_params = allowed_get_params(['username' , 'password']);
+    //var_dump($get_params);
 function allowed_get_params($allowed_params = []){
     //$allowed_array will contain only allowed url parameters
     $allowed_array = [];
