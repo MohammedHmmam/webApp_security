@@ -46,6 +46,18 @@ function has_length($value , $options = []){
     }
     return true;
 }
+///////////////////////////////////////////////////////////////////////////////
+
+//* Validate value has a format matching a regular expression
+// Be sure to user anchor expressions to match start an end of string
+//(Use \A and \Z not ^ ans $ which allow line returns)
+//Example:
+    //has_format_matching('1234' , '/\d{4}/') is true
+    //has_format_matching('12345' , '/\d{4}/'); is also true
+    //has_format_matching('12345' , '/\A\d{4}\Z/'); is false
+    function has_format_matching($value , $regex = '//'){
+        return preg_match($regex , $value);
+    }    
 
 
 
