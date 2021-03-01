@@ -17,7 +17,17 @@ function allowed_get_params($allowed_params = []){
     return $allowed_array;
 
 }
+/////////////////////////////////////////////////////////////////////////////
 
+//*Validate Value has presence
+//use trim() so empty spaces do not count
+//empty() allow White space as non-empty
+// so , empty('White space') = false
+function has_presence($value){
+    $trimmed_value = trim($value);
+    return isset($trimmed_value) && $trimmed_value !== "";
+
+}
 
 
 
